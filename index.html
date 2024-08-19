@@ -6,26 +6,26 @@
       <img src="./tinder-logo.webp" alt="Tinder" />
     </header>
     <div class="cards">
-        <article>
-            <img src="./photo/2.webp" alt="alex, brawn hair  man , 25 years"/>
-            <h2>Alex <span>25</span></h2>
-            <div class="choice nope">Nop</div>
-            <div class="choice like">Like</div>
-        </article>
-        <article>
-            <img src="./photo/1.webp" alt="Leila, red hair  man , 27 years"/>
-            <h2>Leila <span>27</span></h2>
-            <div class="choice nope">Nop</div>
-            <div class="choice like">Like</div>
-        </article>
+      <article>
+        <img src="./photo/2.webp" alt="alex, brawn hair  man , 25 years" />
+        <h2>Alex <span>25</span></h2>
+        <div class="choice nope">Nop</div>
+        <div class="choice like">Like</div>
+      </article>
+      <article>
+        <img src="./photo/1.webp" alt="Leila, red hair  man , 27 years" />
+        <h2>Leila <span>27</span></h2>
+        <div class="choice nope">Nop</div>
+        <div class="choice like">Like</div>
+      </article>
     </div>
     <footer>
-      <button aria-label=""></button>
-      <button aria-label=""></button>
-      <button aria-label=""></button>
-      <button aria-label=""></button>
-      <button aria-label=""></button>
-    </footer> 
+      <button class="is-refresh" aria-label="undo"></button>
+      <button class="is-remov is-big" aria-label="remove"></button>
+      <button class="is-star" aria-label="start"></button>
+      <button class="is-fav is-big" aria-label="fav"></button>class="" 
+      <button class="is-zap" aria-label="zap"></button>
+    </footer>
   </section>
 </main>
 <style>
@@ -75,39 +75,64 @@
       height: 24px;
     }
   }
-  footer{
+  footer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     padding: 0 24px;
     justify-content: center;
     align-items: center;
-    & button{
-        height: 32px;
-        width: 32px;
-        border-radius: 50%;
-        border: 1px solid #ccc
-
+    & button {
+        background: url("tinder-icons.webp") no-repeat;
+        background-position: 0px 0px;
+        background-size: 175px;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border: 0;
     }
   }
-  .cards{
+  .cards {
     position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    & article{
-        border-radius: 8px;
-        overflow: hidden;
-        position: absolute;
+    & article {
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      cursor: grab;
+      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+      & img {
         width: 100%;
-            height: 100%;
-
-        & img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        height: 100%;
+        object-fit: cover;
+      }
+      & h2{
+        color: white;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        height: 100%;
+        width: 100%;
+        padding: 16px;
+        z-index: 3;
+        background: linear-gradient(to top, #00000088 20%, transparent 40%);
+      }
+      & span{
+        margin-left: 6px;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 400;
+      }
     }
-
   }
 </style>
