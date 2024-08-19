@@ -181,8 +181,15 @@
         const currentX = event.pageX ?? event.touches[0].pageX
         //the distance between the initial and current position
         pullDeltaX = currentX - startX;
-        
+
+        isAnimating = true
+        //calculate the rotation of the card using the distance
         if(pullDeltaX === 0) return
+        
+        const deg = pullDeltaX / 10
+        //apply the style to the card
+        actualCard.style.transform = `translateX(${pullDeltaX}px) rotate (${deg}deg)`
+        actualCard.style.cursor = 'grabbing'
         console.log(pullDeltaX)
     }
     }
