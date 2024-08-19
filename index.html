@@ -163,5 +163,29 @@
 
     function startDrag (event) {
         if(isAnimating) return
+        //agarrar el primer articulo
+        const actualCard = event.target.closest('article')
+        //get the initial position of mouse or finger
+        console.log(event)
+        const startX = event.pageX ?? event.touches[0].pageX
+        console.log(startX)
+
+        //the mouse and touch the movemts
+        document.addEventListener('mousemove', onMove)
+        document.addEventListener('mouseup', onEnd)
+
+        document.addEventListener('touchmove', onMove, {passive: true})
+        document.addEventListener('touchend', onEnd, {passive: true})
     }
+    function onMove (event){
+        //currrent position mouse or finger
+        const currentX = event.pageX ?? event.touches[0].pageX
+    }
+    function onEnd (event){
+
+    }
+
+document.addEventListener('mousedown', startDrag)
+document.addEventListener('touchstart', startDrag, {passive: true})
+
 </script>
