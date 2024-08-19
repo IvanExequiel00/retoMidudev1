@@ -176,11 +176,17 @@
 
         document.addEventListener('touchmove', onMove, {passive: true})
         document.addEventListener('touchend', onEnd, {passive: true})
-    }
-    function onMove (event){
+        function onMove (event){
         //currrent position mouse or finger
         const currentX = event.pageX ?? event.touches[0].pageX
+        //the distance between the initial and current position
+        pullDeltaX = currentX - startX;
+        
+        if(pullDeltaX === 0) return
+        console.log(pullDeltaX)
     }
+    }
+    
     function onEnd (event){
 
     }
