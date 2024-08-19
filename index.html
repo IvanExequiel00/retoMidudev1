@@ -130,6 +130,16 @@
       width: 100%;
       height: 100%;
       z-index: 2;
+      &.go-left{
+        transform: translate(-100%) rotate(-20deg)
+      }
+      &.go-right{
+        transform: translate(100%) rotate(20deg)
+      }
+      &.reset {
+        transition: transform .3s ease;
+        transform: translateX(0);
+      }
 
       & img {
         width: 100%;
@@ -187,15 +197,19 @@
         if(pullDeltaX === 0) return
         
         const deg = pullDeltaX / 10
-        //apply the style to the card
-        actualCard.style.transform = `translateX(${pullDeltaX}px) rotate (${deg}deg)`
+        //apply the style to the card   
+        actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
         actualCard.style.cursor = 'grabbing'
         console.log(pullDeltaX)
     }
     }
     
     function onEnd (event){
+        document.addEventListener('mousemove', onMove)
+        document.addEventListener('mouseup', onEnd)
 
+        document.addEventListener('touchmove', onMove)
+        document.addEventListener('touchend', onEnd)
     }
 
 document.addEventListener('mousedown', startDrag)
