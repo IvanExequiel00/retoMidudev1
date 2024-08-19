@@ -20,7 +20,7 @@
       </article>
     </div>
     <footer>
-      <button class="is-refresh" aria-label="undo"></button>
+      <button class="is-undo" aria-label="undo"></button>
       <button class="is-remov is-big" aria-label="remove"></button>
       <button class="is-star" aria-label="start"></button>
       <button class="is-fav is-big" aria-label="fav"></button>class="" 
@@ -92,6 +92,18 @@
       border: 1px solid #ccc;
       cursor: pointer;
       border: 0;
+      transition: scale .3 ease;
+      &:hover{
+        scale: 1.4;
+      }
+      &.is-big{
+        background-size: 250px;
+        width: 48px;
+        height: 48px;
+      }
+      &.is-undo{
+        background-position: -140px 0;
+      }
     }
   }
   .cards {
